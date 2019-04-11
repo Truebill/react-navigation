@@ -15,12 +15,7 @@ function validateRouteConfigMap(routeConfigs) {
     const routeConfig = routeConfigs[routeName];
     const screenComponent = getScreenComponent(routeConfig);
 
-    if (
-      !screenComponent ||
-      (typeof screenComponent !== 'function' &&
-        typeof screenComponent !== 'string' &&
-        !routeConfig.getScreen)
-    ) {
+    if (!screenComponent) {
       throw new Error(
         `The component for route '${routeName}' must be a ` +
           'React component. For example:\n\n' +
